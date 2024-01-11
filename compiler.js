@@ -1,54 +1,3 @@
-#### 面试真题1：了解过AST吗，请说说它的运用场景
-
-代码的本质--字符串
-
-字符串的一些操作，就是所谓的编译
-
-![image-20240110163415332](C:\Users\admin\AppData\Roaming\Typora\typora-user-images\image-20240110163415332.png)
-
-- 词法分析（Lexical Analysis）：将源代码转换成单词流，称为“词法单元”(tokens)，每个词法单元包含一个标识符和一个属性，比如变量名、数字、操作符等。
-- 语法分析（Parsing）：将词法单元转化成抽象语法树（Abstract Syntax Tree ，简称AST），也就是标记所构成的数据结构，表述源代码的结构和规则。
-- 语义分析（Semantic Analysis）：在AST上执行类型检查、作用域检查等操作，以确保代码的正确性和安全性
-- 代码生成（Code Generation）：基于AST生成目标代码，包括优化代码结构、生成代码文本、进行代码压缩等等。
-
-其中
-
-- lexer 是词法分析器，将源代码转换成词法单元流；
-- parser 是语法分析器，将词法单元转换成抽象语法树；
-- semanticAnalysis 是语法分析器，对抽象语法树进行语义分析；
-- codeGeneration 是代码生成器，将分析后的AST生成目标代码
-
-
-
-##### 一个编译器最核心的代码
-
-```
-function compiler(sourceCode) {
-	// 词法分析
-	const tokens = lexer(sourceCode);
-	
-	// 语法分析
-	const ast = parser(tokens);
-	
-	// 语义分析
-	const analyzedAst = semanticAnalysis(ast);
-	
-	// 代码生成
-	const code = codeGeneration(analyzedAst);
-	
-	return code;
-}
-```
-
-为什么在工作需要用到编译原理，一个公式编辑器、一个字符串复杂处理。低代码平台更是需要掌握 AST 及 编译原理。airtable、coda、glide、fibery
-
-
-
-
-
-##### 将LISP语言的代码转为C
-
-```
 
 
 // 词法解析之tokenizer实现
@@ -306,14 +255,3 @@ function parser(tokens) {
 }
 
 console.log(parser(tokenizer('(add 2 (subtract 4 2))')));
-```
-
-
-
-#### 面试真题2：bebel的plugin和loader应用与原理
-
-
-
-
-
-#### 面试真题3：请说说webpack打包过程与原理
